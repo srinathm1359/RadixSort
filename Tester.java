@@ -17,12 +17,12 @@ public class Tester {
     System.out.println(Radix.length(positivenumber));
     System.out.println(Radix.length(negativenumber));
     //Testing radixSortSimple
-    int[] toSort = {176, 338, 147, 299, 120, 43, 1898, 3600, 2, 14, 8, 635};
-    SortableLinkedList sorting = new SortableLinkedList();
-    for (int i = 0; i < toSort.length; i++) {
-      sorting.add(toSort[i]);
+    int[] toSortSimple = {176, 338, 147, 299, 120, 43, 1898, 3600, 2, 14, 8, 635};
+    SortableLinkedList sortingSimple = new SortableLinkedList();
+    for (int i = 0; i < toSortSimple.length; i++) {
+      sortingSimple.add(toSortSimple[i]);
     }
-    System.out.println(sorting);
-    Radix.radixSortSimple(sorting); System.out.println(sorting);
+    System.out.println(sortingSimple);
+    Radix.radixSortSimple(sortingSimple); System.out.println(sortingSimple);
   }
 }
