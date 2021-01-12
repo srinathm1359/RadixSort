@@ -57,6 +57,32 @@ public class Radix {
   }
 
   public static void radixSort(SortableLinkedList data) {
-
+    SortableLinkedList[] SignedBuckets = new SortableLinkedList[2];
+    for (int i = 0; i < 2; i++) {
+      SignedBuckets[i] = new SortableLinkedList();
+    }
+    //place everything into bucket for appropriate sign
+    //nonnegative is bucket 0, negative is bucket 1
+    int currentValue;
+    while (0 < data.size()) {
+      currentValue = data.get(0);
+      if (currentValue >= 0) {
+        SignedBuckets[0].add(currentValue);
+      }
+      else {
+        SignedBuckets[1].add(Math.abs(currentValue));
+      }
+      data.remove(0);
+    }
+    radixSortSimple(SignedBuckets[0]); radixSortSimple(SignedBuckets[1]);
+    //Constructing new linked list with negatives of SignedBuckets[1]
+    SortableLinkedList negatives = new SortableLinkedList();
+    for (int i = SignedBuckets[1].size() - 1; i >= 0; i--) {
+      currentValue = SignedBuckets[1].get(i);
+      int toAdd = -1 * currentValue;
+      negatives.add(toAdd);
+    }
+    negatives.extend(SignedBuckets[0]);
+    data.extend(negatives);
   }
 }
