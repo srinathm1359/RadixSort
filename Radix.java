@@ -23,6 +23,11 @@ public class Radix {
   }
 
   public static void radixSortSimple(SortableLinkedList data) {
+    SortableLinkedList[] buckets = new SortableLinkedList[10];
 
+  }
+
+  public static void radixSort(SortableLinkedList data) {
+    
   }
 }
