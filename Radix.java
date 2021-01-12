@@ -15,4 +15,10 @@ public class Radix {
     double log = Math.log10((double)n);
     return (int)(log + 1);
   }
+
+  public static void merge(MyLinkedList original, MyLinkedList[] buckets) {
+    for (i = 0; i < buckets.length; i++) {
+      original.extend(buckets[i]);
+    }
+  }
 }
